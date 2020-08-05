@@ -20,14 +20,12 @@
 		<div class="cv-header-days">
 			<div v-if="displayWeekNumbers" class="cv-weeknumber" />
 			<template v-for="(label, index) in weekdayNames">
-				<slot :index="getColumnDOWClass(index)" :label="label" name="dayHeader">
+				<slot :index="getColumnDOWClass(index)" :nday="index" :label="wd.label" name="dayHeader">
 					<div
 						:key="getColumnDOWClass(index)"
 						:class="getColumnDOWClass(index)"
 						class="cv-header-day"
-					>
-						{{ label }}
-					</div>
+					>{{label}}</div>
 				</slot>
 			</template>
 		</div>
