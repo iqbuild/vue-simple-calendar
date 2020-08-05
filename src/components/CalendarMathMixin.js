@@ -240,9 +240,14 @@ export default {
 			// 2017 starts on Sunday, so use it as the baseline date
 			return Array(7)
 				.fill()
-				.map((_, i) =>
-					formatter.format(new Date(2017, 0, (i + 1 + startingDayOfWeek) % 7))
-				)
+				.map((_, i) => {
+					return {
+						label: formatter.format(
+							new Date(2017, 0, (i + 1 + startingDayOfWeek) % 7)
+						),
+						date: new Date(2017, 0, (i + 1 + startingDayOfWeek) % 7),
+					}
+				})
 		},
 
 		getDefaultBrowserLocale() {
